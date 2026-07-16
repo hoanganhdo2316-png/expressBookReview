@@ -1,4 +1,4 @@
-﻿const express = require('express');
+const express = require('express');
 const axios = require('axios');
 const books = require('./booksdb.js');
 const { isValid, users } = require('./auth_users.js');
@@ -47,7 +47,7 @@ async function getAllBooks() {
     console.log(JSON.stringify(response.data, null, 2));
     return response.data;
   } catch (error) {
-    console.error('Error fetching all books:', error.message);
+    console.error('Error in getAllBooks:', error.message);
   }
 }
 
@@ -58,7 +58,9 @@ function getBookByISBN(isbn) {
       console.log(JSON.stringify(response.data, null, 2));
       return response.data;
     })
-    .catch((error) => console.error('Error fetching book by ISBN:', error.message));
+    .catch((error) => {
+      console.error('Error in getBookByISBN:', error.message);
+    });
 }
 
 // Task 12: Search by Author using async/await
@@ -68,7 +70,7 @@ async function getBooksByAuthor(author) {
     console.log(JSON.stringify(response.data, null, 2));
     return response.data;
   } catch (error) {
-    console.error('Error fetching books by author:', error.message);
+    console.error('Error in getBooksByAuthor:', error.message);
   }
 }
 
@@ -79,7 +81,9 @@ function getBooksByTitle(title) {
       console.log(JSON.stringify(response.data, null, 2));
       return response.data;
     })
-    .catch((error) => console.error('Error fetching books by title:', error.message));
+    .catch((error) => {
+      console.error('Error in getBooksByTitle:', error.message);
+    });
 }
 
 module.exports.getAllBooks = getAllBooks;
