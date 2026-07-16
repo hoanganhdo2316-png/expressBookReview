@@ -40,7 +40,7 @@ public_users.get('/review/:isbn', (req, res) => {
 
 module.exports.general = public_users;
 
-// Task 10: Get all books using async callback function
+// ===== Task 10: Get the book list available in the shop (using async callback function) =====
 async function getAllBooks() {
   try {
     const response = await axios.get('http://localhost:5000/');
@@ -51,7 +51,7 @@ async function getAllBooks() {
   }
 }
 
-// Task 11: Search by ISBN using Promises
+// ===== Task 11: Get book details based on ISBN (using Promise callbacks) =====
 function getBookByISBN(isbn) {
   return axios.get(`http://localhost:5000/isbn/${isbn}`)
     .then((response) => {
@@ -63,7 +63,7 @@ function getBookByISBN(isbn) {
     });
 }
 
-// Task 12: Search by Author using async/await
+// ===== Task 12: Get book details based on Author (using async/await with Axios) =====
 async function getBooksByAuthor(author) {
   try {
     const response = await axios.get(`http://localhost:5000/author/${author}`);
@@ -74,7 +74,7 @@ async function getBooksByAuthor(author) {
   }
 }
 
-// Task 13: Search by Title using Promises
+// ===== Task 13: Get book details based on Title (using async/await with Axios) =====
 function getBooksByTitle(title) {
   return axios.get(`http://localhost:5000/title/${title}`)
     .then((response) => {
